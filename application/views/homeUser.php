@@ -43,21 +43,21 @@
 <div id="product" class="container mx-md-3">
   <h5><b>PRODUCT</b></h5><br>
   <div class="row">
-   <?php foreach($product as $p){ ?>
+   <?php foreach($product as $key){ ?>
     <div class="col-lg-4 col-md-4 mb-4">
       <div class="kotak" style="width: 90%">
         <a href="#"></a>
-        <a href="#"><img class="img-thumbnail" src="<?php echo base_url() . 'Gambar/'.$p->gambar ?>"/></a>
+        <a href="#"><img class="img-thumbnail" src="<?php echo base_url() . 'Gambar/'.$key->gambar ?>"/></a>
         <div class="card-body">
           <center>
             <h6 class="card-title">
-              <p><?php echo $p->nm_product; ?></p>
-              <p>Rp <b><?php echo number_format($p->harga,0,',','.')?></b></p>
+              <p><?php echo $key->nm_product; ?></p>
+              <p>Rp <b><?php echo number_format($key->harga,0,',','.')?></b></p>
             </h6>
           </center>
-          <p><?php echo $p->detail; ?></p>
+          <p><?php echo $key->detail; ?></p>
         </div><br>
-        <center><a href="<?php echo base_url(). "Welcome/pemesanan/<?=$p->id_product"; ?>"><button class="btn"> Beli </button></a></center>
+        <center><a href="<?php echo base_url('Welcome/pemesanan/'.$key->id_product)?>"><button class="btn"> Beli </button></a></center>
       </div>
     </div>
     <?php } ?>

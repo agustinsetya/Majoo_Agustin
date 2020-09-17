@@ -21,4 +21,31 @@ class M_Welcome extends CI_Model {
 		$this->db->where('password',md5($password));
 		return $this->db->get()->row();
 	}
+
+	function getdataID($where,$table){		
+		return $this->db->get_where($table,$where);
+	}
+
+	function getDataPemesanan($id)
+	{
+		$this->db->select('*');
+		$this->db->from('product');
+		$this->db->where('id_product',$id);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
+	public function addKePemesanan($id)
+	{
+		$object=array
+		(
+			'fk_product'=>$this->input->post('id_product'),
+			'total_harga'=>$this->input->post('harga'),
+			'nama_pemesan'=>$this->input->post('nama_pemesan'),
+			'alamat_pemesan'=>$this->input->post('alamat_pemesan'),
+			'telp_pemesan'=>$this->input->post('telp_pemesan'),
+			'tgl_pesan'=>$this->input->post('tgl_pesan')
+		);
+		$this->db->insert('pemesanan',$object);
+	}
 }

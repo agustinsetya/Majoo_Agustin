@@ -63,4 +63,29 @@ class Welcome extends CI_Controller {
 		$this->session->sess_destroy();
 		redirect(base_url('Welcome'));
 	}
+
+	public function pemesanan($id)
+	{
+		$where = array('id_product' => $id);
+		$data['product'] = $this->M_Welcome->getDataID($where,'product')->result();
+		$data['pesanan'] = $this->M_Welcome->getDataPemesanan($id);
+		$this->load->view('pemesanan',$data);
+	}
+
+	function prosesPemesanan($id){
+		$this->M_Welcome->addKePemesanan($id);
+		$this->session->set_flashdata('success','Data Pemesanan Berhasil Ditambah');
+		redirect('Welcome');
+	}
+
+	// function prosesPemesanan($id){
+	// 	$nama_pemesan = $this->input->post('nama_pemesan', TRUE);
+	// 	$alamat_pemesan = $this->input->post('alamat_pemesan', TRUE);
+	// 	$telp_pemesan = $this->input->post('telp_pemesan', TRUE);
+	// 	$tgl_pesan = date("Y-m-d");
+	// 	$this->M_Welcome->addKePemesanan($nama_pemesan, $alamat_pemesan, $telp_pemesan, $tgl_pesan);
+		
+	// 	$this->session->set_flashdata('success','Data Pemesanan Berhasil Ditambah');
+	// 	redirect('Welcome');
+	// }
 }

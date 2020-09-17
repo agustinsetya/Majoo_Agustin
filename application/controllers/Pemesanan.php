@@ -27,7 +27,7 @@ class Pemesanan extends CI_Controller {
 
 		if(!$this->session->userdata('id'))
 		{
-			redirect('welcome');
+			redirect('Welcome');
 		}
 
 	}
@@ -35,7 +35,15 @@ class Pemesanan extends CI_Controller {
 	public function index()
 	{
 		$data['pemesanan'] = $this->M_Pemesanan->getDataPemesanan();
-		$data['page']='Pemesanan.php';
+		$data['page']='dataPemesanan.php';
 		$this->load->view('Admin/menu',$data);
+	}
+
+	function hapusPemesanan($id)
+	{
+		$where = array('id_pemesanan' => $id);
+		$this->M_Pemesanan->hapus($where,'pemesanan');
+		$this->session->set_flashdata('success','Data Pesanan Berhasil Dihapus');
+		redirect('Pemesanan');
 	}
 }
