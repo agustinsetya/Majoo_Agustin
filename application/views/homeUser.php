@@ -57,7 +57,7 @@
           </center>
           <p><?php echo $p->detail; ?></p>
         </div><br>
-        <center><button type="submit" class="btn btn-primary" name="submit"> Beli </button></center>
+        <center><a href="<?php echo base_url(). "Welcome/pemesanan/<?=$p->id_product"; ?>"><button class="btn"> Beli </button></a></center>
       </div>
     </div>
     <?php } ?>
