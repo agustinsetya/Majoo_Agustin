@@ -74,18 +74,7 @@ class Welcome extends CI_Controller {
 
 	function prosesPemesanan($id){
 		$this->M_Welcome->addKePemesanan($id);
-		$this->session->set_flashdata('success','Data Pemesanan Berhasil Ditambah');
+		$this->session->set_flashdata('success','Pesanan Berhasil disimpan. Terimakasih telah order produk kami, pesanan akan segera kami proses!');
 		redirect('Welcome');
 	}
-
-	// function prosesPemesanan($id){
-	// 	$nama_pemesan = $this->input->post('nama_pemesan', TRUE);
-	// 	$alamat_pemesan = $this->input->post('alamat_pemesan', TRUE);
-	// 	$telp_pemesan = $this->input->post('telp_pemesan', TRUE);
-	// 	$tgl_pesan = date("Y-m-d");
-	// 	$this->M_Welcome->addKePemesanan($nama_pemesan, $alamat_pemesan, $telp_pemesan, $tgl_pesan);
-		
-	// 	$this->session->set_flashdata('success','Data Pemesanan Berhasil Ditambah');
-	// 	redirect('Welcome');
-	// }
 }

@@ -50,7 +50,7 @@ class Product extends CI_Controller {
 		$this->load->helper('url','form');
 		$this->load->library("form_validation");
 		$this->form_validation->set_error_delimiters('<div style="color:red; margin-bottom: 5px">', '</div>');
-		$this->form_validation->set_rules('nm_product', 'Nama Product', 'required');
+		$this->form_validation->set_rules('nm_product', 'Nama Product', 'trim|required|is_unique[product.nm_product]');
 		$this->form_validation->set_rules('detail', 'Detail Product', 'required');
 		$this->form_validation->set_rules('harga', 'Harga', 'required|numeric');
 

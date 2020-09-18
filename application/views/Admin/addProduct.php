@@ -7,6 +7,31 @@
           <div class="clearfix"></div>
         </div><br>
         <div class="col-sm-1"></div>
+        <?php if ($this->session->flashdata('success')) {?>
+          <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <?php echo $this->session->flashdata('success'); ?>
+          </div>
+        <?php  } elseif($this->session->flashdata('hapus')) {?>
+          <!-- validation message to display after form is submitted -->
+          <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <?php echo $this->session->flashdata('hapus'); ?> 
+          </div>
+        <?php } elseif($this->session->flashdata('error')) {?>
+          <!-- validation message to display after form is submitted -->
+          <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <?php echo $this->session->flashdata('error'); ?> 
+          </div>
+        <?php } ?>
+
         <div class="col-sm-10">
           <?php echo form_open_multipart("Product/simpanProduct"); ?>
           <div class="form-group row">
@@ -17,17 +42,17 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="harga" class="col-sm-3 col-form-label"> Harga </label>
-            <div class="col-sm-8">
-              <input type="text" name="harga" class="form-control" placeholder="Harga Product" value="<?php echo set_value('harga'); ?>" required>
-              <?php echo form_error('harga') ?>
-            </div>
-          </div>
-          <div class="form-group row">
             <label for="detail" class="col-sm-3 col-form-label"> Detail Product </label>
             <div class="col-sm-8">
               <textarea name="detail" rows="5" cols="40" class="form-control" placeholder="Detail Product" value="<?php echo set_value('detail'); ?>" required></textarea>
               <?php echo form_error('detail') ?>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="harga" class="col-sm-3 col-form-label"> Harga </label>
+            <div class="col-sm-8">
+              <input type="text" name="harga" class="form-control" placeholder="Harga Product" onkeypress="return Angkasaja(event)" value="<?php echo set_value('harga'); ?>" required>
+              <?php echo form_error('harga') ?>
             </div>
           </div>
           <div class="form-group row">
@@ -47,3 +72,12 @@
 </div>
 <script type="text/javascript" src="<?php echo base_url();?>assetsDatatables/assets_ajax/js/jquery.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assetsDatatables/assets_ajax/js/bootstrap.js"></script>
+
+<script type="text/javascript">
+    function Angkasaja(evt) {
+    var charCode = (evt.which) ? evt.which : event.keyCode
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+      return false;
+      return true;
+    }
+  </script>

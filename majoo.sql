@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 18 Sep 2020 pada 01.15
+-- Waktu pembuatan: 18 Sep 2020 pada 07.06
 -- Versi server: 10.1.30-MariaDB
 -- Versi PHP: 7.2.2
 
@@ -34,7 +34,7 @@ CREATE TABLE `pemesanan` (
   `total_harga` char(20) NOT NULL,
   `nama_pemesan` varchar(255) NOT NULL,
   `alamat_pemesan` varchar(255) NOT NULL,
-  `telp_pemesan` int(15) NOT NULL,
+  `telp_pemesan` char(20) NOT NULL,
   `tgl_pesan` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -113,13 +113,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `pemesanan`
 --
 ALTER TABLE `pemesanan`
-  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `product`
 --
 ALTER TABLE `product`
-  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`

@@ -53,7 +53,7 @@
                 <td><?php echo $i; ?></td>
                 <td><?php echo $key->tgl_pesan;?></td>
                 <td><?php echo $key->nm_product;?></td>
-                <td><?php echo $key->harga;?></td>
+                <td>Rp <?php echo number_format($key->total_harga,0,',','.')?></td>
                 <td><?php echo $key->nama_pemesan;?></td>
                 <td><?php echo $key->alamat_pemesan;?></td>
                 <td><?php echo $key->telp_pemesan;?></td>

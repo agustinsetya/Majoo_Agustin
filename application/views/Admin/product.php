@@ -37,7 +37,7 @@
             <tr class="bg-group"">
               <th width="5px">NO</th>
               <th>Nama Product</th>
-              <th>Harga</th>
+              <th width="70px">Harga</th>
               <th>Detail Product</th>
               <th>Gambar</th>
               <th width="70px">Action</th>
