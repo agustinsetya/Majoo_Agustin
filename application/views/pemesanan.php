@@ -117,7 +117,7 @@
           <div class="form-group row">
             <label for="telp_pemesan" class="col-sm-3 col-form-label"> Telp. Pemesan </label>
             <div class="col-sm-8">
-              <input type="text" name="telp_pemesan" class="form-control" placeholder="Telp. Pemesan" onkeypress="return Angkasaja(event)" value="<?php echo set_value('telp_pemesan'); ?>" required>
+              <input type="number" name="telp_pemesan" class="form-control" placeholder="Telp. Pemesan (Hanya Angka)" value="<?php echo set_value('telp_pemesan'); ?>" required>
               <?php echo form_error('telp_pemesan') ?>
             </div>
           </div>
@@ -182,28 +182,8 @@
     <script type="text/javascript" src="<?php echo base_url();?>assetsWelcome/js/jquery-2.2.3.min.js"></script>
     <!-- //js -->
 
-	<!-- Responsiveslides -->
-	<script type="text/javascript" src="<?php echo base_url();?>assetsWelcome/js/responsiveslides.min.js"></script>
-    <script>
-        // You can also use"$(window).load(function() {"
-        $(function () {
-            // Slideshow 4
-            $("#slider3").responsiveSlides({
-                auto: true,
-                pager: true,
-                nav: false,
-                speed: 500,
-                namespace: "callbacks",
-                before: function () {
-                    $('.events').append("<li>before event fired.</li>");
-                },
-                after: function () {
-                    $('.events').append("<li>after event fired.</li>");
-                }
-            });
-
-        });
-    </script>
+  	<!-- Responsiveslides -->
+  	<script type="text/javascript" src="<?php echo base_url();?>assetsWelcome/js/responsiveslides.min.js"></script>
     <!-- // Responsiveslides -->
     <script type="text/javascript" src="<?php echo base_url();?>assetsWelcome/js/smoothscroll.js"></script><!-- Smooth scrolling -->
 
@@ -230,15 +210,5 @@
         });
     </script>
     <!-- //end-smoth-scrolling -->
-
-    <script type="text/javascript">
-		function Angkasaja(evt) {
-		var charCode = (evt.which) ? evt.which : event.keyCode
-		if (charCode > 31 && (charCode < 48 || charCode > 57))
-			return false;
-			return true;
-		}
-	</script>
-
 </body>
 </html>

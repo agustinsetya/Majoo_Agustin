@@ -51,7 +51,7 @@
           <div class="form-group row">
             <label for="harga" class="col-sm-3 col-form-label"> Harga </label>
             <div class="col-sm-8">
-              <input type="text" name="harga" class="form-control" placeholder="Harga Product" onkeypress="return Angkasaja(event)" value="<?php echo set_value('harga'); ?>" required>
+              <input type="number" name="harga" class="form-control" placeholder="Harga Product (Hanya Angka)" value="<?php echo set_value('harga'); ?>" required>
               <?php echo form_error('harga') ?>
             </div>
           </div>
@@ -72,12 +72,3 @@
 </div>
 <script type="text/javascript" src="<?php echo base_url();?>assetsDatatables/assets_ajax/js/jquery.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assetsDatatables/assets_ajax/js/bootstrap.js"></script>
-
-<script type="text/javascript">
-    function Angkasaja(evt) {
-    var charCode = (evt.which) ? evt.which : event.keyCode
-    if (charCode > 31 && (charCode < 48 || charCode > 57))
-      return false;
-      return true;
-    }
-  </script>
